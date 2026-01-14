@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\img">
+      <UniqueIdentifier>{81509494-38dd-4819-be58-2825c4f3aeba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\img\bricks">
+      <UniqueIdentifier>{413bb462-005e-43f1-b750-fba7b6782844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\img\buttons">
+      <UniqueIdentifier>{54942cb4-b790-4ccc-a4bf-041460f3b618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\img\digits">
+      <UniqueIdentifier>{92f0142f-5f99-41de-8fdf-8132a511fda6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\img\level_digits">
+      <UniqueIdentifier>{d14c8e68-b2af-4d04-a7b7-7e4616628aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\img\logos">
+      <UniqueIdentifier>{d98d9951-6792-4b5a-ba36-4ebd84f39610}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="button.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="drawing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="init.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="options.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rules.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tetris.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="useful.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="drawing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="init.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rules.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tetris.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="useful.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="img\game_over.png">
+      <Filter>Resource Files\img</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level.png">
+      <Filter>Resource Files\img</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\off.png">
+      <Filter>Resource Files\img</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\on.png">
+      <Filter>Resource Files\img</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\pause.png">
+      <Filter>Resource Files\img</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\score.png">
+      <Filter>Resource Files\img</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\tetris.png">
+      <Filter>Resource Files\img</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\bricks\brick0.png">
+      <Filter>Resource Files\img\bricks</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\bricks\brick1.png">
+      <Filter>Resource Files\img\bricks</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\bricks\brick2.png">
+      <Filter>Resource Files\img\bricks</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\bricks\brick3.png">
+      <Filter>Resource Files\img\bricks</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\bricks\brick4.png">
+      <Filter>Resource Files\img\bricks</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\bricks\brick5.png">
+      <Filter>Resource Files\img\bricks</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\bricks\brick6.png">
+      <Filter>Resource Files\img\bricks</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\fullscreen.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\fullscreen_pressed.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\new_game.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\new_game_pressed.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\options.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\options_pressed.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\pause.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\pause_pressed.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\quit.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\buttons\quit_pressed.png">
+      <Filter>Resource Files\img\buttons</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\0.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\1.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\2.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\3.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\4.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\5.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\6.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\7.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\8.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\digits\9.png">
+      <Filter>Resource Files\img\digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\0.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\1.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\2.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\3.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\4.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\5.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\6.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\7.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\8.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\level_digits\9.bmp">
+      <Filter>Resource Files\img\level_digits</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\logos\logo1.png">
+      <Filter>Resource Files\img\logos</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="img\logos\logo2.png">
+      <Filter>Resource Files\img\logos</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="SDL2.dll">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="SDL2_image.dll">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="SDL2_mixer.dll">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="SDL2_ttf.dll">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+</Project>
