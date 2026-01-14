@@ -31,6 +31,9 @@
     <Filter Include="Resource Files\img\logos">
       <UniqueIdentifier>{d98d9951-6792-4b5a-ba36-4ebd84f39610}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\audio">
+      <UniqueIdentifier>{4cb438f0-6a25-4c33-8287-3c87232e35a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="button.c">
@@ -228,6 +231,9 @@
     </CopyFileToFolders>
     <CopyFileToFolders Include="SDL2_ttf.dll">
       <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="audio\music1.wav">
+      <Filter>Resource Files\audio</Filter>
     </CopyFileToFolders>
   </ItemGroup>
 </Project>

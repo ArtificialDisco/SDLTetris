@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include <stdlib.h>
 #include <string.h>
@@ -24,6 +25,8 @@ extern Uint32 black, white;
 extern SDL_Surface *brick[7], *pause_img, *level_img, *score_img,
 	/**score_digits[0], *level_digits[10], */ *game_over_img;
 extern int brick_size;
+
+extern Mix_Music* music;
 
 //these are the actual pieces
 Shape t_shape = {{0, 1, 2, 1}, {0, 0, 0, 1}};
@@ -490,9 +493,10 @@ int main(int argc, char** argv) {
 	randint = LCG;
 
 	clear_board();
-	init_video();
+	init_sdl();
 	init_colors(window_surface->format);
 	load_images();
+	load_music();
 	display_tetris_logo(window_surface);
 	draw_game_area(window_surface);
 	draw_level_area(window_surface);
@@ -504,6 +508,11 @@ int main(int argc, char** argv) {
 	new_piece(window_surface, area_x, area_y, &p, randint(1, 7));
 	next = randint(1, 7);
 	show_next_piece(window_surface, next);
+
+	if (Mix_PlayingMusic() == 0) {
+		//Play the music
+		Mix_PlayMusic(music, -1);
+	}
 
 	r = 0;
 	while(1) {
@@ -537,8 +546,7 @@ int main(int argc, char** argv) {
 	
 		while(SDL_PollEvent(&event)) {
 		if(event.type == SDL_QUIT) {
-			SDL_Quit();
-			exit(0);
+			close_program(0);
 		} else if(event.type == SDL_MOUSEBUTTONDOWN) {
 			get_button_press(window_surface, &event);
 		} else if(event.type == SDL_MOUSEBUTTONUP) {
@@ -562,43 +570,37 @@ int main(int argc, char** argv) {
 			} else if(is_pressed(&pause_button, &event) && game_running) {
 				toggle_pause(window_surface, &p, &pause);
 			} else if(is_pressed(&quit_button, &event)) {
-				SDL_Quit();
-				exit(0);
+				close_program(0);
 			}
 			release_buttons(window_surface);
 
 		} else if(event.type == SDL_KEYDOWN) {
 			switch(event.key.keysym.sym) {
 				case SDLK_ESCAPE:
-					SDL_Quit();
-					exit(0);
+					close_program(0);
 					break;
 				case SDLK_f:
 					window_surface = toggle_fullscreen(window_surface);
 					break;
 				case SDLK_UP:
-				case SDLK_k:
 					if(!up_pressed && !pause) {
 						rotate_piece(window_surface, &p);
 						up_pressed = TRUE;
 					}
 					break;
 				case SDLK_LEFT:
-				case SDLK_j:
 					if(!left_pressed && !pause) {
 						move_piece(window_surface, &p, LEFT, 1);
 						left_pressed = TRUE;
 					}
 					break;
 				case SDLK_RIGHT:
-				case SDLK_l:
 					if(!right_pressed && !pause) {
 						move_piece(window_surface, &p, RIGHT, 1);
 						right_pressed = TRUE;
 					}
 					break;
 				case SDLK_DOWN:
-				case SDLK_m:
 					if(!down_pressed && !pause) {
 						move_piece(window_surface, &p, DOWN, 1);
 						down_pressed = TRUE;
@@ -618,6 +620,13 @@ int main(int argc, char** argv) {
 					if(!p_pressed && game_running) {
 						p_pressed = TRUE;
 						toggle_pause(window_surface, &p, &pause);
+					}
+					break;
+				case SDLK_m:
+					if (Mix_PausedMusic() == 1) {
+						Mix_ResumeMusic();
+					} else {
+						Mix_PauseMusic();
 					}
 					break;
 			}
