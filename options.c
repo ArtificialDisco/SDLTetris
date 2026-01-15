@@ -17,6 +17,7 @@ extern int brick_size;
 extern int next_time;
 extern int video_flags;
 extern int nbuttons;
+extern int fullscreen;
 
 extern SDL_Surface *on_img, *off_img;
 extern SDL_Window* window;
@@ -84,7 +85,8 @@ void options_dlg(SDL_Surface *window_surface)
 {
 	int width = 400, height = 300;
 	int xpos = (window_surface->w - width)/2, ypos = (window_surface->h - height)/2;
-	int exit = FALSE, fullscreen = FALSE;
+	int exit = FALSE;
+	int fullscreen_value = fullscreen;
 	SDL_Event event;
 	SDL_Surface *backup_window = SDL_ConvertSurface(window_surface, window_surface->format, 0);
 	SDL_Surface* on_off;
@@ -100,12 +102,12 @@ void options_dlg(SDL_Surface *window_surface)
 		"./img/buttons/fullscreen.png", NULL,
 		"./img/buttons/fullscreen_pressed.png");
 
-	if (fullscreen) {
+	if (fullscreen_value) {
 		on_off = on_img;
-		fullscreen = TRUE;
+		fullscreen_value = TRUE;
 	} else {
 		on_off = off_img;
-		fullscreen = FALSE;
+		fullscreen_value = FALSE;
 	}
 
 	on_off_rect.x = xpos + fullscreen_button.rect.w + 50,
@@ -124,12 +126,11 @@ void options_dlg(SDL_Surface *window_surface)
 				get_button_press(window_surface, &event);
 			} else if(event.type == SDL_MOUSEBUTTONUP) {
 				if(is_pressed(&fullscreen_button, &event)) {
-					if(fullscreen) {
-						fullscreen = FALSE;
-						on_off = off_img;
-					} else {
-						fullscreen = TRUE;
+				  fullscreen_value = !fullscreen_value;
+					if(fullscreen_value) {
 						on_off = on_img;
+					} else {
+						on_off = off_img;
 					}
 
 					SDL_FillRect(window_surface, &on_off_rect, black);
@@ -145,9 +146,8 @@ void options_dlg(SDL_Surface *window_surface)
 		next_time += TICK_INTERVAL;
 		SDL_Delay(time_left());
 	}
-	/*if ((video_flags & SDL_FULLSCREEN && !fullscreen)
-	  || (!(video_flags & SDL_FULLSCREEN) && fullscreen))
-		toggle_fullscreen(window);*/
+  if (fullscreen_value != fullscreen)
+		toggle_fullscreen(window);
 
 	delete_button(&fullscreen_button);
 

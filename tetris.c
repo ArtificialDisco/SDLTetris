@@ -18,7 +18,8 @@ const int area_y = (VIDEO_HEIGHT - AREA_HEIGHT) / 2;
 
 char board[20][11];
 	
-int video_flags = SDL_SWSURFACE;
+int fullscreen = FALSE;
+int needs_redraw = FALSE;
 
 //colors, bricks and digits - initialized in init.c
 extern Uint32 black, white;
@@ -85,8 +86,8 @@ void remove_brick(SDL_Surface *window, int x, int y)
 	int area_x, area_y;
 	SDL_Rect img_rect;
 
-	area_x = (window->w - AREA_WIDTH)/2;
-	area_y = (window->h - AREA_HEIGHT)/2;
+	area_x = (VIDEO_WIDTH - AREA_WIDTH)/2;
+	area_y = (VIDEO_HEIGHT - AREA_HEIGHT)/2;
 	
 	img_rect.x = area_x + x*brick_size;
 	img_rect.y = area_y + y*brick_size;
@@ -406,31 +407,17 @@ void update_board(SDL_Surface *window, int update)
 				remove_brick(window, j, i);
 }
 
-SDL_Surface *toggle_fullscreen(SDL_Surface *window)
+void toggle_fullscreen()
 {
-	/*SDL_Surface* tmp = SDL_DisplayFormat(window);
-	SDL_Rect wrect;
-	wrect.x = wrect.y = 0;
-	wrect.w = window->w, wrect.h = window->h;
-	
-	if(tmp == NULL) {
-		printf("switch_fullscreen(): SDL_DisplayFormat failed: %s",
-			SDL_GetError());
-		return window;
-	}
-	
-	if(video_flags & SDL_FULLSCREEN) {
-		video_flags &= ~SDL_FULLSCREEN;
+	fullscreen = !fullscreen;
+	if (fullscreen) {
+		SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
 	} else {
-		video_flags |= SDL_FULLSCREEN;
+		SDL_SetWindowFullscreen(window, 0);
 	}
-	
-	window = init_video();
-	
-	blit_surface_safe(tmp, window, &wrect);
-	update_rect_safe(window, 0, 0, window->w, window->h);
-	
-	return window;*/
+	SDL_FreeSurface(window_surface);
+	window_surface = SDL_GetWindowSurface(window);
+	needs_redraw = TRUE;
 }
 
 void toggle_pause(SDL_Surface *window, Piece *current_p, int *pause)
@@ -463,6 +450,10 @@ void display_game_over(SDL_Surface *window)
 		game_over_img->w, game_over_img->h};
 
 	SDL_BlitSurface(game_over_img, NULL, window, &img_rect);
+}
+
+void draw_everything() {
+
 }
 
 unsigned int LCG(unsigned int min, unsigned int max)
@@ -580,7 +571,7 @@ int main(int argc, char** argv) {
 					close_program(0);
 					break;
 				case SDLK_f:
-					window_surface = toggle_fullscreen(window_surface);
+					toggle_fullscreen(window_surface);
 					break;
 				case SDLK_UP:
 					if(!up_pressed && !pause) {
@@ -666,6 +657,18 @@ int main(int argc, char** argv) {
 		} else
 			if(!pause && game_running) 
 				r++;
+
+		if (needs_redraw) {
+			display_tetris_logo(window_surface);
+			draw_game_area(window_surface);
+			draw_level_area(window_surface);
+			draw_score_area(window_surface);
+			create_menu_dlg(window_surface);
+			display_level(window_surface, level);
+			show_next_piece(window_surface, next);
+			update_board(window_surface, TRUE);
+		  needs_redraw = FALSE;
+		}
 
 		SDL_UpdateWindowSurface(window);
 

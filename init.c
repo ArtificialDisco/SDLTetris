@@ -66,8 +66,8 @@ void init_sdl() {
 
 	printf("init video mode 800x600 8bpp ... ");
 
-	window = SDL_CreateWindow("SDL Drums", SDL_WINDOWPOS_UNDEFINED,
-		SDL_WINDOWPOS_UNDEFINED, VIDEO_WIDTH,
+	window = SDL_CreateWindow("SDL Drums", SDL_WINDOWPOS_CENTERED,
+		SDL_WINDOWPOS_CENTERED, VIDEO_WIDTH,
 		VIDEO_HEIGHT, SDL_WINDOW_SHOWN);
 
 

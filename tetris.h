@@ -65,7 +65,7 @@ void write_to_board(Piece *p, char color);
 void update_board(SDL_Surface *window, int update);
 
 int clear_lines(SDL_Surface *window);
-SDL_Surface *toggle_fullscreen(SDL_Surface *window);
+void toggle_fullscreen();
 void toggle_pause(SDL_Surface *window, Piece *current_p, int *pause);
 
 int calc_score(int level, int lines);
